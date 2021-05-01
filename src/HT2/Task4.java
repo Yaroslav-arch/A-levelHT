@@ -11,16 +11,16 @@ public class Task4 {
       int absB = b < 0 ? -b : b;
       int absC = c < 0 ? -c : c;
 
-//      if (absA<=absB && absA<=absC) { //как второй вариант
-//          return a;
-//      } else if  (absB<=absA && absB<=absC) {
-//          return b;
-//      } else {
-//          return c;
-//        }
+      if (absA<=absB && absA<=absC) { //как второй вариант
+          return a;
+      } else if  (absB<=absA && absB<=absC) {
+          return b;
+      } else {
+          return c;
+        }
 
 
-        return absA < absB ? absC < absA ? c : a : absC < absB ? c : b;
+//        return absA < absB ? absC < absA ? c : a : absC < absB ? c : b;
 
   }
 

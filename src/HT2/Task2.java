@@ -20,7 +20,7 @@ public class Task2 {
 
         } else {
             double p = (a + b + c) / 2.0;
-            double square = (p*(p-a)*(p-b)*(p-c));
+            double square = Math.sqrt(p*(p-a)*(p-b)*(p-c));
             return square;
         }
     }
