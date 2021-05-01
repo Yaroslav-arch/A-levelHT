@@ -1,6 +1,6 @@
 package HT1;
 
-public class Task2 {
+public class Task4 {
     public static void main(String[] args) {
         int original = Integer.parseInt(args[0]);
         int reversed = 0;
