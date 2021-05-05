@@ -1,4 +1,4 @@
-package HT2;
+package ua.Lysenko.HW2;
 
 public class Task2 {
     public static void main(String[] args) {

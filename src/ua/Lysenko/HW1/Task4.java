@@ -1,4 +1,4 @@
-package HT1;
+package ua.Lysenko.HW1;
 
 public class Task4 {
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
-package HT1;
+package ua.Lysenko.HW1;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Task2 {
     public static void main(String[] args) {
