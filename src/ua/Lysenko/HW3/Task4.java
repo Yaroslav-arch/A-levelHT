@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class Task4 {
     static int a;
     static int b;
+    static boolean flag = false;
 
     public static void main(String[] args) {
         setA();
         setB();
 
-        while (!checkNumber()) {
+        while (!flag) {
             checkNumber();
         }
 
@@ -20,24 +21,24 @@ public class Task4 {
 
     private static void setA() {
         int min = 0;
-        int max = 1000;
+        int max = 100;
         a = min + (int) (Math.random() * max);
 
     }
 
-    private static boolean checkNumber() {
+    private static void checkNumber() {
 
 
         if (b > a) {
             System.out.println("Много");
             setB();
-            return false;
+            flag = false;
         } else if (b < a) {
             System.out.println("Мало");
             setB();
-            return false;
+            flag = false;
         } else {
-            return true;
+            flag = true;
         }
 
     }
