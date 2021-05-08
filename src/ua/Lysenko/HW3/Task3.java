@@ -8,20 +8,24 @@ public class Task3 {
         Scanner scanner = new Scanner(System.in);
         String basic = scanner.nextLine();
         System.out.println("В строке " + basic + " " + countSpaces(basic) + " слов(а)");
-        System.out.println("В строке " + basic + " " + anothercount(basic) + " слов(а)");
-    }
 
+    }
 
     private static int countSpaces(String in) {
-        String checked = in.trim();
-        return checked.length() - checked.replaceAll(" ", "").length() + 1;
+        String[] words = in.split("\\s+");
+        int count = words.length;
+        return count - checkingForNumbers(words);
     }
 
-    private static int anothercount(String in) {
-        int count = 0;
-        for (String returnValue : in.split(" ")) {
-            count = returnValue.length();
+    private static int checkingForNumbers(String[] words) {
+//        String regex = "\\d+";
+        int counter = 0;
+        for (int i = 0; i < words.length; i++) {
+            String s = words[i].replaceAll("\\d+", "");
+            if (s.equals("")) {
+                counter++;
+            }
         }
-        return count;
+        return counter;
     }
 }
