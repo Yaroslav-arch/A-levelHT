@@ -43,19 +43,18 @@ public class Task3 {
         return simpleNumberArray;
     }
 
-    static boolean simple(int a) {//берем число i
-        int p = 0;//переменная для определения результата
-        if ((a % 2 == 0) || (a % 10 == 5)) {//исключаем числа, которые заканчиваются на 5 и четные
+    static boolean simple(int a) {
+        int p = 0;
+        if ((a % 2 == 0) || (a % 10 == 5)) {
             return false;
         } else {
-            for (int j = 3; j <= Math.sqrt(a); j += 2) {//делим на все нечетные числа до корня из i
-                if (a % j == 0) {// если хотя бы на одно число делится, то остановка цикла, переход к следующему числу
+            for (int j = 3; j <= Math.sqrt(a); j += 2) {
+                if (a % j == 0) {
                     p += 1;
                     break;
                 }
             }
         }
-        //если p = 0, то возвращаем true, число простое
         return p <= 0;
 
     }
