@@ -21,7 +21,7 @@ public class Task3 {
 //        String regex = "\\d+";
         int counter = 0;
         for (int i = 0; i < words.length; i++) {
-            String s = words[i].replaceAll("\\d+", "");
+            String s = words[i].replaceAll("[0-9]+", "");
             if (s.equals("")) {
                 counter++;
             }
