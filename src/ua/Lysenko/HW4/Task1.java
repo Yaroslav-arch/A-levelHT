@@ -9,9 +9,9 @@ public class Task1 {
     }
 
     private static void assignArray(int[] array) {
+        int min = 1;
+        int max = 10;
         for (int i = 0; i < array.length; i++) {
-            int min = 1;
-            int max = 10;
             array[i] = min + (int) (Math.random() * max);
         }
     }
@@ -21,7 +21,7 @@ public class Task1 {
         for (int j : array) {
             sum = sum + j;
         }
-        return sum / 400;
+        return sum / array.length;
     }
 
     private static double geomMean(int[] array) {
@@ -29,6 +29,6 @@ public class Task1 {
         for (int j : array) {
             mult = mult * j;
         }
-        return Math.pow(mult, 1.0 / 400);
+        return Math.pow(mult, 1.0 / array.length);
     }
 }

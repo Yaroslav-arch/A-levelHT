@@ -10,7 +10,7 @@ public class Task2 {
         int[] array = new int[1000];
         assignArray(array);
         getMaxValue(array);
-        System.out.println("Простых чисел в массиве: " + (compareArrays(array, getSimpleNumber())));
+        System.out.println("Простых чисел в массиве: " + (getPrimeNumbersQuantity(array, createPrimeNumbersArray())));
 
     }
 
@@ -27,20 +27,20 @@ public class Task2 {
         maxValue = array[array.length - 1];
     }
 
-    private static int[] getSimpleNumber() {
+    private static int[] createPrimeNumbersArray() {
         int count = 4;
-        int[] simpleNumberArray = new int[1000];
-        simpleNumberArray[0] = 2;
-        simpleNumberArray[1] = 3;
-        simpleNumberArray[2] = 5;
-        simpleNumberArray[3] = 7;
+        int[] primeNumbersArray = new int[1000];
+        primeNumbersArray[0] = 2;
+        primeNumbersArray[1] = 3;
+        primeNumbersArray[2] = 5;
+        primeNumbersArray[3] = 7;
         for (int i = 11; i <= maxValue; i += 2) {
             if (simple(i)) {
                 count++;
-                simpleNumberArray[count] = i;
+                primeNumbersArray[count] = i;
             }
         }
-        return simpleNumberArray;
+        return primeNumbersArray;
     }
 
     static boolean simple(int a) {
@@ -59,11 +59,11 @@ public class Task2 {
 
     }
 
-    private static int compareArrays(int[] arrayOriginal, int[] arraySimple) {
+    private static int getPrimeNumbersQuantity(int[] arrayOriginal, int[] arraySimple) {
         int count = 0;
-        for (int i = 0; i < arrayOriginal.length; i++) {
-            for (int j = 0; j < arraySimple.length; j++) {
-                if (arrayOriginal[i] == arraySimple[j]) {
+        for (int j : arrayOriginal) {
+            for (int k : arraySimple) {
+                if (j == k) {
                     count++;
                 }
             }
