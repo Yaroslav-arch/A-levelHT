@@ -8,7 +8,7 @@ public class Task3 {
         int arraySize = 3;
         int[][] array = new int[arraySize][arraySize];
         assignArray(array);
-        for (int i = 0; i < replaceNumbers(array).length; i++) {
+        for (int i = 0; i < array.length; i++) {
             System.out.println(Arrays.toString(replaceNumbers(array)[i]));
         }
     }
@@ -33,6 +33,7 @@ public class Task3 {
                 finalArray[i][j] = array[j][i];
             }
         }
+        System.out.println("replace numbers method called");
         return finalArray;
     }
 }

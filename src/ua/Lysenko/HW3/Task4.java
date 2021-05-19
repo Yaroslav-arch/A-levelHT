@@ -6,10 +6,11 @@ public class Task4 {
     static int a;
     static int b;
     static boolean flag = false;
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         setA();
-        setB();
+        requestB();
 
         while (!flag) {
             checkNumber();
@@ -31,11 +32,11 @@ public class Task4 {
 
         if (b > a) {
             System.out.println("Много");
-            setB();
+            requestB();
             flag = false;
         } else if (b < a) {
             System.out.println("Мало");
-            setB();
+            requestB();
             flag = false;
         } else {
             flag = true;
@@ -43,9 +44,8 @@ public class Task4 {
 
     }
 
-    private static void setB() {
+    private static void requestB() {
         System.out.println("Введите число");
-        Scanner scanner = new Scanner(System.in);
         b = scanner.nextInt();
 
     }

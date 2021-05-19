@@ -26,6 +26,7 @@ public class Task1 {
 
         Phone x = new Phone();
         x.receiveCall("Alex");
+        // или
         phone1.receiveCall("John");
 
     }
