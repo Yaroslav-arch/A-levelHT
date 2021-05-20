@@ -1,5 +1,7 @@
 package ua.Lysenko.HW7.Task3;
 
+import java.util.Random;
+
 public class Vector {
     double x;
     double y;
@@ -14,52 +16,52 @@ public class Vector {
     public Vector() {
     }
 
-    double getLength(Vector local) {
-        return Math.abs(Math.sqrt(local.x * local.x + local.y * local.y + local.z * local.z));
+    double getLength() {
+        return Math.abs(Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z));
     }
 
-    Vector multiplicationOfVectors(Vector first, Vector second) {
+    Vector multiplicationOfVectors(Vector local) {
         Vector result = new Vector();
-        if (checkCollinear(first, second)) {
+        if (this.checkCollinear(local)) {
             result.x = result.y = result.z = 0;
         } else {
 
-            result.x = (first.y * second.z - first.z * second.y);
-            result.y = (first.z * second.x - first.x * second.z);
-            result.z = (first.x * second.y - first.y * second.x);
+            result.x = (this.y * local.z - this.z * local.y);
+            result.y = (this.z * local.x - this.x * local.z);
+            result.z = (this.x * local.y - this.y * local.x);
 
         }
         return result;
     }
 
-    boolean checkCollinear(Vector first, Vector second) {
-        return first.x / second.x == first.y / second.y && first.x / second.x == first.z / second.z;
+    boolean checkCollinear(Vector local) {
+        return this.x / local.x == this.y / local.y && this.x / local.x == this.z / local.z;
     }
 
-    double getVectorCosine(Vector first, Vector second) {
-        return dotProductOfVectors(first, second) / (getLength(first) * getLength(second));
+    double getVectorCosine(Vector local) {
+        return dotProductOfVectors(this, local) / (this.getLength() * local.getLength());
     }
 
     double dotProductOfVectors(Vector first, Vector second) { //скалярное умножение векторов
         return first.x * second.x + first.y * second.y + first.z * second.z;
     }
 
-    Vector sumOfVectors(Vector first, Vector second) {
+    Vector sumOfVectors(Vector local) {
         Vector result = new Vector();
-        if (first.x == second.x && first.y == second.y && first.z == second.z) {
+        if (this.x == local.x && this.y == local.y && this.z == local.z) {
             result.x = 0;
             result.y = 0;
             result.z = 0;
         } else {
 
-            result.x = first.x + second.x;
-            result.y = first.y + second.y;
-            result.z = first.z + second.z;
+            result.x = this.x + local.x;
+            result.y = this.y + local.y;
+            result.z = this.z + local.z;
         }
         return result;
     }
 
-    Vector substrOfVectors(Vector first, Vector second) {
+    static Vector substrOfVectors(Vector first, Vector second) {
         Vector result = new Vector();
         if (first.x == second.x && first.y == second.y && first.z == second.z) {
             result.x = 0;
@@ -72,6 +74,22 @@ public class Vector {
             result.z = first.z - second.z;
         }
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                '}';
+    }
+
+    static void setCoordinates(Vector local) {
+        Random random = new Random();
+        local.x = random.nextDouble();
+        local.y = random.nextDouble();
+        local.z = random.nextDouble();
     }
 
 }

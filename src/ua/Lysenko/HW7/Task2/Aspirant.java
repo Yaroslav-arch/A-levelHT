@@ -6,6 +6,8 @@ public class Aspirant extends Student{
         this.workName = workName;
     }
 
+    public Aspirant() {
+    }
 
     private String workName = "Some scientific stuff";
     @Override
