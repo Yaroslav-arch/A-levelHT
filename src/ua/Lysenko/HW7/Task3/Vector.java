@@ -61,7 +61,7 @@ public class Vector {
         return result;
     }
 
-    static Vector substrOfVectors(Vector first, Vector second) {
+    static Vector substrOfVectors(Vector first, Vector second) { //сделал static для разнообразия
         Vector result = new Vector();
         if (first.x == second.x && first.y == second.y && first.z == second.z) {
             result.x = 0;
