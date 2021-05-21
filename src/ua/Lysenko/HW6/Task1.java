@@ -20,7 +20,7 @@ public class Task1 {
 
         phone3.number = "0630001111";
         phone3.model = "Xiaomi";
-        phone2.weight = 150;
+        phone3.weight = 150;
 
         System.out.println("Number: " + phone1.getNumber());
 

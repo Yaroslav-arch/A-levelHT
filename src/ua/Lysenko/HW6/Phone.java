@@ -1,6 +1,6 @@
 package ua.Lysenko.HW6;
 
-final class Phone {
+class Phone {
     String number;
     String model;
     int weight;
