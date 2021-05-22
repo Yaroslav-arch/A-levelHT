@@ -10,7 +10,7 @@ public class ChessField {
     public ChessField() {
     }
 
-    void setValues() {
+    void setValuesStart() {
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("Введите букву текущего поля от а до h");
@@ -22,7 +22,23 @@ public class ChessField {
             System.out.println("Введите номер текущего поля от 1 до 8");
             this.number = scanner.nextInt();
         } while (this.number < 1 || this.number > 8);
+        this.index = getIndex();
     }
+    void setValuesFinish() {
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("Введите букву поля назначения от а до h");
+            this.letter = scanner.next();
+
+        } while (getIndex() == -1);
+
+        do {
+            System.out.println("Введите номер поля назначения от 1 до 8");
+            this.number = scanner.nextInt();
+        } while (this.number < 1 || this.number > 8);
+        this.index = getIndex();
+    }
+
 
 
     int getIndex() {
@@ -30,9 +46,9 @@ public class ChessField {
         if (this.letter.equalsIgnoreCase("a")) {
             index = this.number;
         } else if (this.letter.equalsIgnoreCase("b")) {
-            index = this.number + 8;
+            index = this.number + 8;//9
         } else if (this.letter.equalsIgnoreCase("c")) {
-            index = this.number + 16;
+            index = this.number + 16;//19
         } else if (this.letter.equalsIgnoreCase("d")) {
             index = this.number + 24;
         } else if (this.letter.equalsIgnoreCase("e")) {
