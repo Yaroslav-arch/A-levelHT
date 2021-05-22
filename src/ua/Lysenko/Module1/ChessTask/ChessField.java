@@ -24,6 +24,7 @@ public class ChessField {
         } while (this.number < 1 || this.number > 8);
         this.index = getIndex();
     }
+
     void setValuesFinish() {
         Scanner scanner = new Scanner(System.in);
         do {
@@ -40,15 +41,14 @@ public class ChessField {
     }
 
 
-
     int getIndex() {
         int index;
         if (this.letter.equalsIgnoreCase("a")) {
             index = this.number;
         } else if (this.letter.equalsIgnoreCase("b")) {
-            index = this.number + 8;//9
+            index = this.number + 8;
         } else if (this.letter.equalsIgnoreCase("c")) {
-            index = this.number + 16;//19
+            index = this.number + 16;
         } else if (this.letter.equalsIgnoreCase("d")) {
             index = this.number + 24;
         } else if (this.letter.equalsIgnoreCase("e")) {
@@ -62,5 +62,4 @@ public class ChessField {
         } else index = -1;
         return index;
     }
-
 }

@@ -4,7 +4,7 @@ public class TaskChess {
     public static void main(String[] args) {
         ChessField originalPosition = new ChessField();
         ChessField intendedPosition = new ChessField();
-        //добавил еще один класс из-за разницы в запросе на ввод для текущей и следующей ячейкой
+
 
         originalPosition.setValuesStart();
         intendedPosition.setValuesFinish();
@@ -18,7 +18,6 @@ public class TaskChess {
         } else {
             System.out.println("Выбранное НЕ поле подходит");
         }
-
     }
 }
 
