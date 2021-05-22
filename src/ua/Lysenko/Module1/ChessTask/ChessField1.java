@@ -1,8 +1,29 @@
-package ua.Lysenko.Module1;
+package ua.Lysenko.Module1.ChessTask;
 
-public class ChessField {
+import java.util.Scanner;
+
+public class ChessField1 extends ChessField{
     String letter;
     int number;
+    int index;
+
+    public ChessField1() {
+    }
+
+    void setValues() {
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("Введите букву поля назначения от а до h");
+            this.letter = scanner.next();
+
+        } while (getIndex() == -1);
+
+        do {
+            System.out.println("Введите номер поля назначения от 1 до 8");
+            this.number = scanner.nextInt();
+        } while (this.number < 1 || this.number > 8);
+    }
+
 
     int getIndex() {
         int index;
@@ -26,7 +47,4 @@ public class ChessField {
         return index;
     }
 
-
-    public ChessField() {
-    }
 }
