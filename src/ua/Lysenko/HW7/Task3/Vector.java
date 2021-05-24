@@ -39,11 +39,11 @@ public class Vector {
     }
 
     double getVectorCosine(Vector local) {
-        return dotProductOfVectors(this, local) / (this.getLength() * local.getLength());
+        return dotProductOfVectors(local) / (this.getLength() * local.getLength());
     }
 
-    double dotProductOfVectors(Vector first, Vector second) { //скалярное умножение векторов
-        return first.x * second.x + first.y * second.y + first.z * second.z;
+    double dotProductOfVectors(Vector first) { //скалярное умножение векторов
+        return first.x * this.x + first.y * this.y + first.z * this.z;
     }
 
     Vector sumOfVectors(Vector local) {
@@ -90,6 +90,15 @@ public class Vector {
         local.x = random.nextDouble();
         local.y = random.nextDouble();
         local.z = random.nextDouble();
+    }
+
+    static Vector[] getVectorsArray(int n) {
+        Vector[] arrayOfVectors = new Vector[n];
+        for (int i = 0; i < n; i++) {
+            arrayOfVectors[i] = new Vector();
+            Vector.setCoordinates(arrayOfVectors[i]);
+        }
+        return arrayOfVectors;
     }
 
 }

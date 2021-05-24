@@ -7,7 +7,7 @@ public class Task3 {
         Vector firstOne = new Vector(1.0, 2.0, 3.0);
         Vector secondOne = new Vector(3.0, 4.0, 5.0);
         int n = 5;
-        Vector[] arrayOfVectors = getVectorsArray(n);
+        Vector[] arrayOfVectors = Vector.getVectorsArray(n);
         System.out.println(Arrays.toString(arrayOfVectors));
 
 
@@ -28,14 +28,7 @@ public class Task3 {
         System.out.println(secondOne);
     }
 
-    private static Vector[] getVectorsArray(int n) {
-        Vector[] arrayOfVectors = new Vector[n];
-        for (int i = 0; i < n; i++) {
-            arrayOfVectors[i] = new Vector();
-            Vector.setCoordinates(arrayOfVectors[i]);
-        }
-        return arrayOfVectors;
-    }
+
 
 
 }
