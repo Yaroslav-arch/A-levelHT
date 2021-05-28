@@ -1,8 +1,6 @@
 package ua.Lysenko.Module1.ChessTask;
 
 public class Converter {
-    private int xCoordinate;
-    private int yCoordinate;
 
     public int[] convertCoordinateToIndex(String coordinate) {
         String letter = coordinate.substring(0, 1);

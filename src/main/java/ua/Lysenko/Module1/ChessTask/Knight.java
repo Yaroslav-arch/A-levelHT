@@ -16,10 +16,4 @@ public class Knight {
 
     }
 
-    public void makeMove(int x, int y) {
-        if (checkMovement(x, y)) {
-            this.xCoordinate = x;
-            this.yCoordinate = y;
-        }
-    }
 }
