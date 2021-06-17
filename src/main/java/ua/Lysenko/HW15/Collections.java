@@ -4,10 +4,10 @@ import java.util.*;
 
 public class Collections {
     public static void main(String[] args) {
-        arrayList();
-        set();
-        queue();
-        deque();
+//        arrayList();
+//        set();
+//        queue();
+//        deque();
         map();
     }
 
@@ -44,14 +44,13 @@ public class Collections {
         stringQueue.add("Five");
 
         System.out.println(stringQueue);
-        String flag = "Something";
-        while (flag != null)
-            flag = stringQueue.poll();
+        while (stringQueue.peek() != null)
+            stringQueue.poll();
         System.out.println(stringQueue);
     }
 
     public static void deque() {
-        ArrayDeque<Integer> numbersDeque = new ArrayDeque<>();
+        Deque<Integer> numbersDeque = new ArrayDeque<>();
         numbersDeque.add(1);
         numbersDeque.add(2);
         numbersDeque.add(3);
@@ -59,9 +58,8 @@ public class Collections {
         numbersDeque.add(5);
 
         System.out.println(numbersDeque);
-        Integer flag = -1;
-        while (flag != null)
-            flag = numbersDeque.pollFirst();
+        while (numbersDeque.peek() != null)
+            numbersDeque.pop();
         System.out.println(numbersDeque);
     }
 
@@ -73,9 +71,10 @@ public class Collections {
         cars.put(4, "Porsche");
         cars.put(5, "Audi");
 
+
         System.out.println("В коллекции объектов: " + cars.size());
         Set<Integer> keys = cars.keySet();
-        Integer[] keysArray = keys.toArray(new Integer[0]);
+        Integer[] keysArray = keys.toArray(new Integer[keys.size()]);
         for (int i = 0; i < keysArray.length; i++) {
             cars.remove(keysArray[i]);
         }
