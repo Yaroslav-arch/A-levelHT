@@ -128,6 +128,7 @@ public class CustomList<T> implements Collection<T> {
                 throw new IllegalStateException();
             }
             innerList.remove(lastRet);
+            cursor = lastRet;
             lastRet = -1;
         }
 

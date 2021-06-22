@@ -10,6 +10,7 @@ public class Main {
         printListContent(iterator);
         printListContentReversed(iterator);
         filterList(iterator);
+        System.out.println(numbers.size());
     }
 
     private static void filterList(ListIterator<Integer> iterator) {
