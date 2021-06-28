@@ -1,34 +1,17 @@
 package ua.Lysenko.HW17;
 
-import java.util.Comparator;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-public class SomeObject {
+@Data
+@AllArgsConstructor
+public class SomeObject implements Comparable<SomeObject> {
     private int id;
     private String name;
     private int count;
 
-    public SomeObject(int id, String name, int count) {
-        this.id = id;
-        this.name = name;
-        this.count = count;
+    @Override
+    public int compareTo(SomeObject that) {
+        return this.id - that.id;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public int compareById(SomeObject a) { //это чтобы с компараторами не мучаться
-
-        return this.getId() - a.getId();
-    }
-
-
 }

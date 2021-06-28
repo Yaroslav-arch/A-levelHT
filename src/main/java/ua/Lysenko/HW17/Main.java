@@ -1,9 +1,6 @@
 package ua.Lysenko.HW17;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -25,19 +22,19 @@ public class Main {
                 .collect(Collectors.toList());
 
         SomeObject maxIdObject = list.stream()
-                .max((s1, s2) -> s1.compareById(s2))
+                .max(SomeObject::compareTo)
                 .get();
         System.out.println(maxIdObject.getName());
 
         int aContainersCountSum = list.stream()
-               .mapToInt(s -> s.getCount())
+                .filter(s -> s.getName().toLowerCase().contains("a"))
+                .mapToInt(s -> s.getCount())
                 .sum();
         System.out.println(aContainersCountSum);
 
         Map<Integer, Object> peopleFromList = list.stream()
-                .collect(Collectors.toMap(s -> s.getId(), p -> p.getName()));
+                .collect(Collectors.toMap(s -> s.getId(), s -> s.getName()));
         peopleFromList.forEach((k, v) -> System.out.println(k + " " + v));
-
 
     }
 }
