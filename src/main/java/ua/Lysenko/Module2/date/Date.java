@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import ua.Lysenko.Module2.TimeInSeconds;
 
-import java.util.Comparator;
-
 @Getter
 @Setter
 public class Date {
@@ -29,20 +27,9 @@ public class Date {
         this.second = 0;
     }
 
-//    public Date(long year, long month, long day, long hour, long minute, long seconds) {
-//        this.year = year;
-//        this.month = month;
-//        this.day = day;
-//        this.hour = hour;
-//        this.minute = minute;
-//        this.second = seconds;
-//        setSecondsAbs();
-//        setDateFromSecondsAbs();
-//    }
-
     public void setSecondsAbs() {
         if (isLeap(year) && month > 2) {
-            secondsAbs = second + minute * 60 + hour * 360 + day * 8640 + (daysFromBeginningOfTheYear(month, day) + 1) * 8640
+            secondsAbs = second + minute * 60 + hour * 360 + (daysFromBeginningOfTheYear(month, day) + 1) * 8640
                     + year * 3_153_600 + amendmentOnLeap(year) * 8640;
 
         } else {

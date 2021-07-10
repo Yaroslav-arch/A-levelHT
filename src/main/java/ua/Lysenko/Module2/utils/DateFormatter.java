@@ -26,12 +26,7 @@ public class DateFormatter {
         monthMap.put(12L, "december");
     }
 
-    public DateFormatter(String pattern) {
-        this.pattern = pattern;
-    }
-
     public DateFormatter() {
-
     }
 
     public String format(Date date) {
@@ -76,11 +71,7 @@ public class DateFormatter {
         String[] splitDate = date.split("/|\\s|:|-");
         String[] delimiters = pattern.split("\\w+");
         String[] splitPattern = pattern.split("/|\\s|:|-");
-//        for (int i = 0; i < fields; i++) {
-//            if (splitDate[i] == null) {
-//                splitDate[i] = "00";
-//            }
-//        }
+
         for (int i = 0; i < fields; i++) {
             if (splitPattern[i].equals("d")) {
                 newDate.setDay(Long.parseLong(splitDate[i]));

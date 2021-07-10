@@ -22,12 +22,6 @@ public class DateController {
         originalDate = createDate();
         runNavigation();
         parseDate(scanner.next());
-//        enterPattern();
-//        enterDate();
-
-//        Date originalDate = dateFormatter.parse(date);
-//        operateDate();
-
 
     }
 
@@ -51,8 +45,6 @@ public class DateController {
         System.out.println("Please enter second");
         date1.setSecond(scanner.nextLong());
         date1.setSecondsAbs();
-//        System.out.println("Please enter delimiter for output('-' or '/')");
-//        date1.setDelimiter(scanner.next());
 
         return date1;
     }
@@ -60,11 +52,6 @@ public class DateController {
     private void enterPattern() {
         System.out.println("Please enter the pattern of Date using d, dd, m, mm, mmm, yy, yyyy and / or - as splitter");
         pattern = scanner.next();
-    }
-
-    private void enterDate() {
-        System.out.println("Please enter the Date");
-        date = scanner.next();
     }
 
     private void parseDate(String position) {
