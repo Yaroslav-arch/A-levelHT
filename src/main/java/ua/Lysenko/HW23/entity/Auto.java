@@ -18,10 +18,10 @@ public class Auto {
     private double price;
 
     @Column(name = "manufactureDate")
-    private Date manufactureDate;
+    private String manufactureDate;
 
     @Column(name = "sellDate")
-    private Date sellDate;
+    private String sellDate;
 
     @Column(name = "gearType")
     private String gearType;
@@ -32,8 +32,8 @@ public class Auto {
     public Auto() {
     }
 
-    public Auto(String title, double price, Date manufactureDate,
-                Date sellDate, String gearType, int fuelVolume) {
+    public Auto(String title, double price, String manufactureDate,
+                String sellDate, String gearType, int fuelVolume) {
 
         
         this.title = title;
@@ -68,19 +68,19 @@ public class Auto {
         this.price = price;
     }
 
-    public Date getManufactureDate() {
+    public String getManufactureDate() {
         return manufactureDate;
     }
 
-    public void setManufactureDate(Date manufactureDate) {
+    public void setManufactureDate(String manufactureDate) {
         this.manufactureDate = manufactureDate;
     }
 
-    public Date getSellDate() {
+    public String getSellDate() {
         return sellDate;
     }
 
-    public void setSellDate(Date sellDate) {
+    public void setSellDate(String sellDate) {
         this.sellDate = sellDate;
     }
 

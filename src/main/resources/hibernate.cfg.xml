@@ -8,9 +8,9 @@
 
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://localhost/a1</property>
-        <property name="connection.username">a1</property>
-        <property name="connection.password"></property>
+        <property name="connection.url">jdbc:postgresql://localhost/postgres</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
 
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">1</property>
@@ -34,7 +34,7 @@
         <property name="hibernate.dbcp.minIdle">5</property>
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>
 
-        <mapping class="entity.Student" />
+        <mapping class="entity.Auto" />
 
     </session-factory>
 
