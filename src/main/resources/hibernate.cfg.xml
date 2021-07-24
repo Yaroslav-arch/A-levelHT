@@ -34,7 +34,11 @@
         <property name="hibernate.dbcp.minIdle">5</property>
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>
 
-        <mapping class="ua.Lysenko.HW23.entity.Auto" />
+        <mapping class="ua.Lysenko.HW24.entity.Album"/>
+        <mapping class="ua.Lysenko.HW24.entity.Artist"/>
+        <mapping class="ua.Lysenko.HW24.entity.Customer"/>
+        <mapping class="ua.Lysenko.HW24.entity.Order"/>
+        <mapping class="ua.Lysenko.HW24.entity.Track"/>
 
     </session-factory>
 
