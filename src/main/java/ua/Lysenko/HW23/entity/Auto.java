@@ -1,7 +1,6 @@
 package ua.Lysenko.HW23.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table
@@ -23,8 +22,9 @@ public class Auto {
     @Column(name = "sellDate")
     private String sellDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "gearType")
-    private String gearType;
+    private GearType gearType;
 
     @Column(name = "fuelVolume")
     private int fuelVolume;
@@ -33,7 +33,7 @@ public class Auto {
     }
 
     public Auto(String title, double price, String manufactureDate,
-                String sellDate, String gearType, int fuelVolume) {
+                String sellDate, GearType gearType, int fuelVolume) {
 
         
         this.title = title;
@@ -84,11 +84,11 @@ public class Auto {
         this.sellDate = sellDate;
     }
 
-    public String getGearType() {
+    public GearType getGearType() {
         return gearType;
     }
 
-    public void setGearType(String gearType) {
+    public void setGearType(GearType gearType) {
         this.gearType = gearType;
     }
 

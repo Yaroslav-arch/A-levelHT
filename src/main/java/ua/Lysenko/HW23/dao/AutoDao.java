@@ -2,7 +2,6 @@ package ua.Lysenko.HW23.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import ua.Lysenko.HW23.entity.Auto;
 import ua.Lysenko.HW23.utils.HibernateUtil;
 
@@ -15,7 +14,7 @@ public class AutoDao {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            Object object = session.save(auto);
+            session.save(auto);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -51,15 +50,16 @@ public class AutoDao {
 
             transaction = session.beginTransaction();
 
-            String hql = "UPDATE Auto set title = :title "
-                    + "UPDATE Auto set price = :price"
-                    + "UPDATE Auto set manufactureDate = :manufactureDate"
-                    + "UPDATE Auto set sellDate = :sellDate"
-                    + "UPDATE Auto set gearType = :gearType"
-                    + "UPDATE Auto set fuelVolume = :fuelVolume"
-                    + "WHERE id = :autoId";
+            String hql = "UPDATE Auto as a " +
+                    "SET title = :title, " +
+                    "price = :price, " +
+                    "manufactureDate = :manufactureDate, " +
+                    "cellDate = :cellDate, " +
+                    "gearType = :gearType, " +
+                    "fuelVolume = :fuelVolume " +
+                    "WHERE autoId = :autoId";
             Query query = session.createQuery(hql);
-            query.setParameter("autoId", 1);
+            query.setParameter("autoId", auto.getId());
             query.setParameter("title", auto.getTitle());
             query.setParameter("price", auto.getPrice());
             query.setParameter("manufactureDate", auto.getManufactureDate());
@@ -67,10 +67,9 @@ public class AutoDao {
             query.setParameter("gearType", auto.getGearType());
             query.setParameter("fuelVolume", auto.getFuelVolume());
 
-            int result = query.executeUpdate();
-            System.out.println("Rows affected: " + result);
-
+            query.executeUpdate();
             transaction.commit();
+
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -176,14 +175,14 @@ public class AutoDao {
         return auto;
     }
 
-    public Auto getAutoByPriceRange(int min, int max) {
+    public Auto getAutoByPriceRange(double min, double max) {
 
         Transaction transaction = null;
         Auto auto = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            String hql = " FROM Auto A WHERE A.price >= :min && FROM Auto A WHERE A.price <= :max ";
+            String hql = " FROM Auto a WHERE a.price BETWEEN :min AND :max";
             Query query = session.createQuery(hql);
             query.setParameter("min", min);
             query.setParameter("max", max);
