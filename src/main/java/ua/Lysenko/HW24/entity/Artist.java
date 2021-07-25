@@ -17,19 +17,24 @@ public class Artist {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "fullName")
+    @Column(name = "full_name")
     private String fullName;
 
     @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY)
     @Column(name = "track")
-    private List<Track> tracks;
+    private List<Track> tracks = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "AlbumsArtists",
-            joinColumns = {@JoinColumn(name = "ArtistId")},
-            inverseJoinColumns = {@JoinColumn(name = "AlbumId")})
+    @JoinTable(name = "albums_artists",
+            joinColumns = {@JoinColumn(name = "artist_id")},
+            inverseJoinColumns = {@JoinColumn(name = "album_id")})
     private List<Album> albums = new ArrayList<>();
 
     public Artist() {
+    }
+
+    public Artist(long id, String fullName) {
+        this.id = id;
+        this.fullName = fullName;
     }
 }

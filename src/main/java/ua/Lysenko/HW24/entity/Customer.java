@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -16,13 +17,17 @@ public class Customer {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "fullName")
+    @Column(name = "full_name")
     private String fullName;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
-    @Column(name = "track")
-    private List<Order> orders;
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private List<Order> orders = new ArrayList<>();
 
     public Customer() {
+    }
+
+    public Customer(long id, String fullName) {
+        this.id = id;
+        this.fullName = fullName;
     }
 }

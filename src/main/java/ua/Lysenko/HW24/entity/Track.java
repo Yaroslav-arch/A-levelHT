@@ -24,10 +24,15 @@ public class Track {
     @JoinColumn(name = "artist_id")
     private Artist artist;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "album_id")
     private Album album;
 
     public Track() {
+    }
+
+    public Track(long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 }

@@ -1,9 +1,9 @@
 package ua.Lysenko.HW24.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -20,23 +20,26 @@ public class Album {
     @Column(name = "title")
     private String title;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @Column(name = "tracks")
-    private List<Track> tracks;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "album")
+    private List<Track> tracks = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "AlbumsArtists",
-            joinColumns = {@JoinColumn(name = "AlbumId")},
-            inverseJoinColumns = {@JoinColumn(name = "ArtistId")})
-    private List<Artist> artist;
+    @ManyToMany(mappedBy = "albums")
+//    @JoinTable(name = "albums_artists",
+//            joinColumns = {@JoinColumn(name = "album_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "artist_id")})
+    private List<Artist> artist = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "OrdersAlbums",
-            joinColumns = {@JoinColumn(name = "AlbumId")},
-            inverseJoinColumns = {@JoinColumn(name = "OrderId")})
-    private List<Order> orders;
+    @ManyToMany(mappedBy = "albums")
+//    @JoinTable(name = "orders_albums",
+//            joinColumns = {@JoinColumn(name = "album_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "order_id")})
+    private List<Order> orders = new ArrayList<>();
 
     public Album() {
     }
 
+    public Album(long id, String title) {
+        this.id = id;
+        this.title = title;
+    }
 }
