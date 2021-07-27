@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "customers")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +26,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(long id, String fullName) {
-        this.id = id;
+    public Customer(String fullName) {
         this.fullName = fullName;
     }
 }

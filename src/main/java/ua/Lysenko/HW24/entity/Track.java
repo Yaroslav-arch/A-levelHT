@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "tracks")
 public class Track {
 
     @Id
@@ -31,8 +31,7 @@ public class Track {
     public Track() {
     }
 
-    public Track(long id, String name) {
-        this.id = id;
+    public Track(String name) {
         this.name = name;
     }
 }

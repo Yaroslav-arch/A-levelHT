@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "students")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,10 @@ public class Order {
     @Column(name = "order_number")
     private int orderNumber;
 
-    @ManyToMany
-    @JoinTable(name = "orders_albums",
-            joinColumns = {@JoinColumn(name = "order_id")},
-            inverseJoinColumns = {@JoinColumn(name = "album_id")})
+    @ManyToMany(mappedBy = "orders")
+//    @JoinTable(name = "orders_albums",
+//            joinColumns = {@JoinColumn(name = "order_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "album_id")})
     private List<Album> albums = new ArrayList<>();
 
     @ManyToOne
@@ -33,8 +33,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(long id, int orderNumber) {
-        this.id = id;
+    public Order(int orderNumber) {
         this.orderNumber = orderNumber;
     }
 }

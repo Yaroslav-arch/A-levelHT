@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "artists")
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +33,7 @@ public class Artist {
     public Artist() {
     }
 
-    public Artist(long id, String fullName) {
-        this.id = id;
+    public Artist(String fullName) {
         this.fullName = fullName;
     }
 }

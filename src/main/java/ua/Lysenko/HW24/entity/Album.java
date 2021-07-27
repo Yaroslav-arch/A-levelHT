@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "albums")
 public class Album {
 
     @Id
@@ -23,23 +23,22 @@ public class Album {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "album")
     private List<Track> tracks = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "albums")
-//    @JoinTable(name = "albums_artists",
-//            joinColumns = {@JoinColumn(name = "album_id")},
-//            inverseJoinColumns = {@JoinColumn(name = "artist_id")})
+    @ManyToMany
+    @JoinTable(name = "albums_artists",
+            joinColumns = {@JoinColumn(name = "album_id")},
+            inverseJoinColumns = {@JoinColumn(name = "artist_id")})
     private List<Artist> artist = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "albums")
-//    @JoinTable(name = "orders_albums",
-//            joinColumns = {@JoinColumn(name = "album_id")},
-//            inverseJoinColumns = {@JoinColumn(name = "order_id")})
+    @ManyToMany
+    @JoinTable(name = "orders_albums",
+            joinColumns = {@JoinColumn(name = "album_id")},
+            inverseJoinColumns = {@JoinColumn(name = "order_id")})
     private List<Order> orders = new ArrayList<>();
 
     public Album() {
     }
 
-    public Album(long id, String title) {
-        this.id = id;
+    public Album(String title) {
         this.title = title;
     }
 }

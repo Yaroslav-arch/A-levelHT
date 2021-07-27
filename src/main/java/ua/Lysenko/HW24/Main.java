@@ -12,11 +12,11 @@ public class Main {
         OrderDao orderDao = new OrderDao();
         TrackDao trackDao = new TrackDao();
 
-        Album album = new Album(1, "Fear of the dark");
-        Artist artist = new Artist(1, "Iron Maiden");
-        Customer customer = new Customer(1, "Donald Trump");
-        Order order = new Order(1, 123);
-        Track track = new Track(1, "The trooper");
+        Album album = new Album("Fear of the dark");
+        Artist artist = new Artist("Iron Maiden");
+        Customer customer = new Customer("Donald Trump");
+        Order order = new Order(123);
+        Track track = new Track("The trooper");
 
         artist.getAlbums().add(album);
         album.getTracks().add(track);
@@ -28,7 +28,11 @@ public class Main {
         order.setCustomer(customer);
         album.getOrders().add(order);
 
-//        orderDao.saveOrder(order);
+        albumDao.saveAlbum(album);
         artistDao.saveArtist(artist);
+        customerDao.saveCustomer(customer);
+        orderDao.saveOrder(order);
+        trackDao.saveTrack(track);
+
     }
 }
