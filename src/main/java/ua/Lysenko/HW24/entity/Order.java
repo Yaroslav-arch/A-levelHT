@@ -20,14 +20,11 @@ public class Order {
     @Column(name = "order_number")
     private int orderNumber;
 
-    @ManyToMany(mappedBy = "orders")
-//    @JoinTable(name = "orders_albums",
-//            joinColumns = {@JoinColumn(name = "order_id")},
-//            inverseJoinColumns = {@JoinColumn(name = "album_id")})
+    @ManyToMany
     private List<Album> albums = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+//    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     public Order() {

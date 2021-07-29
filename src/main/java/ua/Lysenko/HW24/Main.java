@@ -23,7 +23,7 @@ public class Main {
         customer.getOrders().add(order);
         order.getAlbums().add(album);
 
-        album.getArtist().add(artist);
+        album.setArtist(artist);
         track.setAlbum(album);
         order.setCustomer(customer);
         album.getOrders().add(order);

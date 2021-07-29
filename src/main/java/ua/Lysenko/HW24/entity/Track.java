@@ -20,11 +20,11 @@ public class Track {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne//(cascade = CascadeType.ALL)
     @JoinColumn(name = "artist_id")
     private Artist artist;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "album_id")
     private Album album;
 

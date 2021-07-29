@@ -20,19 +20,19 @@ public class Album {
     @Column(name = "title")
     private String title;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "album")
+    @OneToMany(mappedBy = "album", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Track> tracks = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "albums_artists",
-            joinColumns = {@JoinColumn(name = "album_id")},
-            inverseJoinColumns = {@JoinColumn(name = "artist_id")})
-    private List<Artist> artist = new ArrayList<>();
+    @ManyToOne
+//    @JoinTable(name = "albums_artists",
+//            joinColumns = {@JoinColumn(name = "album_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "artist_id")})
+    private Artist artist;
 
-    @ManyToMany
-    @JoinTable(name = "orders_albums",
-            joinColumns = {@JoinColumn(name = "album_id")},
-            inverseJoinColumns = {@JoinColumn(name = "order_id")})
+    @ManyToMany(mappedBy = "albums")
+//    @JoinTable(name = "orders_albums",
+//            joinColumns = {@JoinColumn(name = "album_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "order_id")})
     private List<Order> orders = new ArrayList<>();
 
     public Album() {

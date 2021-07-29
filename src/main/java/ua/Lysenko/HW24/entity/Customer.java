@@ -20,7 +20,7 @@ public class Customer {
     @Column(name = "full_name")
     private String fullName;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 
     public Customer() {

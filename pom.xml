@@ -83,7 +83,12 @@
             <version>5.5.4.Final</version>
         </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.12.8</version>
+        </dependency>
 
     </dependencies>
 
