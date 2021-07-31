@@ -1,14 +1,20 @@
 package ua.Lysenko.HW23.entity;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+
+@Getter
+@Setter
 @Entity
-@Table
+@Table(name = "autos")
 public class Auto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-   private long id;
+    private long id;
 
     @Column(name = "title")
     private String title;
@@ -16,17 +22,17 @@ public class Auto {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "manufactureDate")
-    private String manufactureDate;
+    @Column(name = "manufacture_date")
+    private LocalDate manufactureDate;
 
-    @Column(name = "sellDate")
-    private String sellDate;
+    @Column(name = "sell_date")
+    private LocalDate sellDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "gearType")
+    @Column(name = "gear_type")
     private GearType gearType;
 
-    @Column(name = "fuelVolume")
+    @Column(name = "fuel_volume")
     private int fuelVolume;
 
     public Auto() {
@@ -35,68 +41,12 @@ public class Auto {
     public Auto(String title, double price, String manufactureDate,
                 String sellDate, GearType gearType, int fuelVolume) {
 
-        
+
         this.title = title;
         this.price = price;
-        this.manufactureDate = manufactureDate;
-        this.sellDate = sellDate;
+        this.manufactureDate = LocalDate.parse(manufactureDate);
+        this.sellDate = LocalDate.parse(sellDate);
         this.gearType = gearType;
-        this.fuelVolume = fuelVolume;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public String getManufactureDate() {
-        return manufactureDate;
-    }
-
-    public void setManufactureDate(String manufactureDate) {
-        this.manufactureDate = manufactureDate;
-    }
-
-    public String getSellDate() {
-        return sellDate;
-    }
-
-    public void setSellDate(String sellDate) {
-        this.sellDate = sellDate;
-    }
-
-    public GearType getGearType() {
-        return gearType;
-    }
-
-    public void setGearType(GearType gearType) {
-        this.gearType = gearType;
-    }
-
-    public int getFuelVolume() {
-        return fuelVolume;
-    }
-
-    public void setFuelVolume(int fuelVolume) {
         this.fuelVolume = fuelVolume;
     }
 

@@ -54,10 +54,10 @@ public class AutoDao {
                     "SET title = :title, " +
                     "price = :price, " +
                     "manufactureDate = :manufactureDate, " +
-                    "cellDate = :cellDate, " +
+                    "sellDate = :sellDate, " +
                     "gearType = :gearType, " +
                     "fuelVolume = :fuelVolume " +
-                    "WHERE autoId = :autoId";
+                    "WHERE id = :autoId";
             Query query = session.createQuery(hql);
             query.setParameter("autoId", auto.getId());
             query.setParameter("title", auto.getTitle());
@@ -156,7 +156,7 @@ public class AutoDao {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            String hql = " FROM Auto A WHERE A.title = :autoTitle";
+            String hql = " FROM Auto auto WHERE auto.title = :autoTitle";
             Query query = session.createQuery(hql);
             query.setParameter("autoTitle", title);
             List results = query.getResultList();

@@ -15,20 +15,16 @@ public class Main {
 
         AutoDao.insertAuto();
 
-        // update Auto
         Auto Auto1 = new Auto("Audi", 35555.0, "15-12-2019", "01-01-2021", GearType.HAND, 45);
         AutoDao.createAuto(Auto1);
         AutoDao.updateAuto(Auto1);
 
-        // get Autos
         List<Auto> Autos = AutoDao.getAutos();
         Autos.forEach(s -> System.out.println(s.getTitle()));
 
-        // get single Auto
         Auto Auto2 = AutoDao.getAutoById(1);
         System.out.println(Auto2.getTitle());
 
-        // delete Auto
         AutoDao.deleteAuto(1);
 
     }
