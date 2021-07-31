@@ -20,11 +20,11 @@ public class Album {
     @Column(name = "title")
     private String title;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album", fetch = FetchType.LAZY)
     private List<Track> tracks = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "artist_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "artist_id")
     private Artist artist;
 
     @ManyToMany(mappedBy = "albums")

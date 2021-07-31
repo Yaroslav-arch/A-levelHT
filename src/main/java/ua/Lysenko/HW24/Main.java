@@ -28,11 +28,12 @@ public class Main {
         order.setCustomer(customer);
         album.getOrders().add(order);
 
-        trackDao.saveTrack(track);
+
         artistDao.saveArtist(artist);
         albumDao.saveAlbum(album);
         customerDao.saveCustomer(customer);
         orderDao.saveOrder(order);
+        trackDao.saveTrack(track);
 
     }
 }
