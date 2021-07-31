@@ -4,13 +4,15 @@ import ua.Lysenko.HW24.dao.*;
 import ua.Lysenko.HW24.entity.*;
 
 public class Main {
-    public static void main(String[] args) {
+    AlbumDao albumDao = new AlbumDao();
+    ArtistDao artistDao = new ArtistDao();
+    CustomerDao customerDao = new CustomerDao();
+    OrderDao orderDao = new OrderDao();
+    TrackDao trackDao = new TrackDao();
 
-        AlbumDao albumDao = new AlbumDao();
-        ArtistDao artistDao = new ArtistDao();
-        CustomerDao customerDao = new CustomerDao();
-        OrderDao orderDao = new OrderDao();
-        TrackDao trackDao = new TrackDao();
+    public static void main(String[] args) {
+        Main main = new Main();
+
 
         Album album = new Album("Fear of the dark");
         Artist artist = new Artist("Iron Maiden");
@@ -29,11 +31,15 @@ public class Main {
         album.getOrders().add(order);
 
 
-        artistDao.saveArtist(artist);
-        albumDao.saveAlbum(album);
-        customerDao.saveCustomer(customer);
-        orderDao.saveOrder(order);
-        trackDao.saveTrack(track);
+        main.artistDao.saveArtist(artist);
+        main.albumDao.saveAlbum(album);
+        main.customerDao.saveCustomer(customer);
+        main.orderDao.saveOrder(order);
+        main.trackDao.saveTrack(track);
 
+    }
+
+    public void bulkInsertTrack() {
+        trackDao.bulkInsert(1_000_000);
     }
 }
