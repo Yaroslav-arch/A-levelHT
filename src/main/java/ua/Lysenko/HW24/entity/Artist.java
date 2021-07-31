@@ -20,14 +20,11 @@ public class Artist {
     @Column(name = "full_name")
     private String fullName;
 
-    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Column(name = "track")
+    @OneToMany(mappedBy = "artist")
     private List<Track> tracks = new ArrayList<>();
 
-    @OneToMany//(mappedBy = "artists")
-//    @JoinTable(name = "albums_artists",
-//            joinColumns = {@JoinColumn(name = "artist_id")},
-//            inverseJoinColumns = {@JoinColumn(name = "album_id")})
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "artist_id")
     private List<Album> albums = new ArrayList<>();
 
     public Artist() {

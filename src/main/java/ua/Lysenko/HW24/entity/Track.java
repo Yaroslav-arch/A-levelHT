@@ -20,12 +20,12 @@ public class Track {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne//(cascade = CascadeType.ALL)
-    @JoinColumn(name = "artist_id")
+    @ManyToOne
+    @JoinColumn(name = "artist_id",nullable = false)
     private Artist artist;
 
     @ManyToOne
-    @JoinColumn(name = "album_id")
+    @JoinColumn(name = "album_id", insertable = false, updatable = false)
     private Album album;
 
     public Track() {
