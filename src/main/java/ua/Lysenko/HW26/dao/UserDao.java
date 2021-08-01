@@ -65,13 +65,14 @@ public class UserDao {
 
     }
 
-    public static void readAllData(MongoDatabase database) {
+    public static List getAll(MongoDatabase database) {
+        List<User> userList = new ArrayList<>();
         MongoCollection<Document> users = database.getCollection("users");
         FindIterable<Document> documents = users.find();
         for (Document document : documents) {
-            System.out.println(document);
+            userList.add(mapperTo(document));
         }
-
+        return userList;
     }
 
     public static void updateData(MongoDatabase database, UserFields fieldName, String fieldValueOld, String fieldValueNew) {
@@ -96,10 +97,26 @@ public class UserDao {
         users.deleteOne(filter);
     }
 
+    //    создал метод для себя и удобства
     public static void deleteAll(MongoDatabase database) {
         final Document filter = new Document();
         MongoCollection<Document> users = database.getCollection("users");
         users.deleteMany(gt("age", 0));
+    }
+
+    public void bindAccountsToUser(MongoDatabase database, String userId, List<String> accounts) {
+        MongoCollection<Document> users = database.getCollection("users");
+
+        final Document filter = new Document();
+        filter.append("id", userId);
+
+        final Document update = new Document();
+        update.append("accounts", accounts);
+
+        final Document doc = new Document();
+        doc.append("$set", update);
+
+        users.updateOne(filter, doc);
     }
 
     public static Document mapperFrom(User user) {
@@ -122,7 +139,7 @@ public class UserDao {
                 document.get("workPlace", String.class),
                 document.get("city", String.class)
         );
-        user.setId(document.get("id",String.class));
+        user.setId(document.get("id", String.class));
         return user;
 
     }
