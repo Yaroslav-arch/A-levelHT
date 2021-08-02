@@ -64,6 +64,10 @@ public class App {
         accountDao.bindUserToAccount(database, account5.getId(), user3.getId());
         accountDao.bindUserToAccount(database, account6.getId(), user4.getId());
 
+        userDao.bindAccountsToUser(database, user1.getId(), Arrays.asList(account1.getId(), account2.getId()));
+        userDao.bindAccountsToUser(database, user2.getId(), Arrays.asList(account3.getId(), account4.getId()));
+        userDao.bindAccountsToUser(database, user3.getId(), Arrays.asList(account5.getId()));
+        userDao.bindAccountsToUser(database, user1.getId(), Arrays.asList(account6.getId()));
 //        userDao.deleteAll(database);
     }
 

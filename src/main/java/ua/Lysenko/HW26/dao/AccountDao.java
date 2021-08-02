@@ -5,7 +5,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import ua.Lysenko.HW26.entity.Account;
-import ua.Lysenko.HW26.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;

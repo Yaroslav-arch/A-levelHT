@@ -65,7 +65,7 @@ public class UserDao {
 
     }
 
-    public static List getAll(MongoDatabase database) {
+    public static List<User> getAll(MongoDatabase database) {
         List<User> userList = new ArrayList<>();
         MongoCollection<Document> users = database.getCollection("users");
         FindIterable<Document> documents = users.find();
@@ -117,6 +117,14 @@ public class UserDao {
         doc.append("$set", update);
 
         users.updateOne(filter, doc);
+    }
+
+    public List<User> findManyByAccountsCount(MongoDatabase database, int count) {
+
+        List<User> allUsers = UserDao.getAll(database);
+        return allUsers.stream()
+                .filter((user) -> user.getAccounts().size() >= 2)
+                .toList();
     }
 
     public static Document mapperFrom(User user) {
