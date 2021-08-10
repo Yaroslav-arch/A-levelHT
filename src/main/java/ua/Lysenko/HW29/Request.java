@@ -27,7 +27,7 @@ public class Request {
                 '}';
     }
 
-    public Request deepCopy(){
+    public Request deepCopy() {
         Gson gson = new Gson();
         return gson.fromJson(gson.toJson(this), Request.class);
     }
@@ -53,7 +53,7 @@ public class Request {
         }
 
         public Builder setPricePerMile(float price) {
-            if (price > 1.5 && price < 3.5f) {
+            if (1.5f < price && price < 3.5f) {
                 this.pricePerMile = price;
             } else {
                 this.pricePerMile = 1.5f;
@@ -62,7 +62,9 @@ public class Request {
         }
 
         public Builder setMaxWeight(int maxWeight) {
-            this.maxWeight = maxWeight;
+            if (maxWeight < 60_000) {
+                this.maxWeight = maxWeight;
+            } else throw new IllegalStateException("OVERLOAD");
             return this;
         }
 
