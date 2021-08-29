@@ -6,7 +6,7 @@ import java.util.concurrent.RecursiveTask;
 
 public class FindAverage extends RecursiveTask<BigInteger> {
     private static final long serialVersionUID = 1L;
-    private final static int THRESHOLD = 100_000;
+    private final static int THRESHOLD = 100;
 
     private List<BigInteger> ageList;
 
